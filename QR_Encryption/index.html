@@ -1,0 +1,3170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QR Cryptography System</title>
+
+    <!-- QR Generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <!-- QR Scanner -->
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+    
+<style>
+
+/* =========================================================
+   QR CRYPTOGRAPHY SYSTEM
+   PROFESSIONAL CYBERSECURITY COLOR THEME
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================================
+   COLOR VARIABLES
+   ========================================================= */
+
+:root {
+
+    /* Main Theme */
+    --navy-dark: #071a33;
+    --navy: #0b2547;
+    --navy-light: #123b68;
+
+    /* Technology Blue */
+    --blue-dark: #1554a3;
+    --blue: #1976d2;
+    --blue-light: #42a5f5;
+    --blue-soft: #e8f3ff;
+
+    /* Cyber Cyan */
+    --cyan-dark: #008fa3;
+    --cyan: #00b8c8;
+    --cyan-light: #67e8f9;
+    --cyan-soft: #ecfeff;
+
+    /* Encryption Purple */
+    --purple-dark: #5b21b6;
+    --purple: #7c3aed;
+    --purple-light: #a78bfa;
+    --purple-soft: #f3e8ff;
+
+    /* Decryption Green */
+    --green-dark: #047857;
+    --green: #10b981;
+    --green-light: #6ee7b7;
+    --green-soft: #ecfdf5;
+
+    /* Warning */
+    --orange-dark: #b45309;
+    --orange: #f59e0b;
+    --orange-soft: #fffbeb;
+
+    /* Error */
+    --red-dark: #b91c1c;
+    --red: #ef4444;
+    --red-soft: #fef2f2;
+
+    /* General */
+    --white: #6aaee9;
+    --background: #6aaee9;
+    --surface: #6aaee9;
+
+    --text-dark: #172033;
+    --text: #334155;
+    --text-light: #64748b;
+
+    --border: #cbdceb;
+    --border-light: #e1ebf5;
+
+    --shadow:
+        0 20px 55px rgba(7, 26, 51, 0.15);
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+body {
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    min-height: 100vh;
+
+    padding: 30px;
+
+    color: var(--text-dark);
+
+    background:
+
+        radial-gradient(
+            circle at 5% 5%,
+            rgba(0, 184, 200, 0.15),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 95% 15%,
+            rgba(25, 118, 210, 0.15),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(124, 58, 237, 0.08),
+            transparent 35%
+        ),
+
+        var(--background);
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.container {
+
+    width: 100%;
+
+    max-width: 1050px;
+
+    margin: auto;
+}
+
+
+/* =========================================================
+   MAIN SYSTEM CARD
+   ========================================================= */
+
+.card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--navy-dark) 0%,
+            var(--navy) 48%,
+            var(--blue-dark) 100%
+        );
+
+    border-radius: 28px;
+
+    padding: 38px;
+
+    box-shadow:
+        0 30px 75px rgba(7, 26, 51, 0.28),
+        0 8px 20px rgba(7, 26, 51, 0.12);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+
+/* Top Cyber Line */
+
+.card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            var(--blue-light),
+            var(--purple-light),
+            var(--cyan)
+        );
+}
+
+
+/* Decorative glow */
+
+.card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    top: -150px;
+    right: -100px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(103, 232, 249, 0.16),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+
+    text-align: center;
+
+    margin-bottom: 32px;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+
+    width: 78px;
+    height: 78px;
+
+    margin: 0 auto 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 22px;
+
+    font-size: 36px;
+
+    color: var(--white);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 184, 200, 0.35),
+            rgba(25, 118, 210, 0.35)
+        );
+
+    border:
+        1px solid rgba(103, 232, 249, 0.55);
+
+    box-shadow:
+        0 0 0 6px rgba(0, 184, 200, 0.08),
+        0 15px 35px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+h1 {
+
+    font-size: 32px;
+
+    color: var(--white);
+
+    margin-bottom: 10px;
+
+    letter-spacing: 0.3px;
+
+    font-weight: 750;
+
+    text-shadow:
+        0 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Cyan accent if title contains accent */
+
+h1 span {
+
+    color: var(--cyan-light);
+}
+
+
+.subtitle {
+
+    color: #cfe5fa;
+
+    line-height: 1.6;
+
+    max-width: 680px;
+
+    margin: auto;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   WORKFLOW
+   ========================================================= */
+
+.workflow {
+
+    position: relative;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.12),
+            rgba(0,184,200,0.07)
+        );
+
+    border:
+        1px solid rgba(103, 232, 249, 0.25);
+
+    border-radius: 20px;
+
+    padding: 23px;
+
+    margin-bottom: 30px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 10px 30px rgba(0,0,0,0.08);
+
+    backdrop-filter: blur(10px);
+}
+
+
+.workflow-title {
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: var(--cyan-light);
+
+    margin-bottom: 15px;
+}
+
+
+.workflow-step {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    padding: 8px 0;
+
+    line-height: 1.5;
+
+    color: #cbdff3;
+}
+
+
+.workflow-step strong {
+
+    color: var(--white);
+}
+
+
+/* Step number / icons */
+
+.workflow-step::first-letter {
+
+    color: var(--cyan-light);
+}
+
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+.section {
+
+    margin-bottom: 30px;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   SECTION TITLES
+   ========================================================= */
+
+.section-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: var(--cyan-light);
+
+    margin-bottom: 15px;
+
+    padding-bottom: 10px;
+
+    border-bottom:
+        1px solid rgba(103, 232, 249, 0.20);
+}
+
+
+/* =========================================================
+   LABELS
+   ========================================================= */
+
+label {
+
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+
+    color: #e5f2ff;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+input[type="text"],
+input[type="password"],
+input[type="file"] {
+
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border:
+        2px solid #c7d9eb;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f7fbff
+        );
+
+    color: var(--text-dark);
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.2s ease;
+}
+
+
+/* File input */
+
+input[type="file"] {
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fcff,
+            #eef7ff
+        );
+
+    border-color: #9fc4e6;
+}
+
+
+/* Input hover */
+
+input[type="text"]:hover,
+input[type="password"]:hover,
+input[type="file"]:hover {
+
+    border-color: var(--blue-light);
+}
+
+
+/* Input focus */
+
+input:focus {
+
+    border-color: var(--cyan);
+
+    box-shadow:
+        0 0 0 4px rgba(0, 184, 200, 0.13),
+        0 5px 15px rgba(0, 184, 200, 0.08);
+}
+
+
+/* =========================================================
+   SHOW PASSWORD
+   ========================================================= */
+
+.show-password {
+
+    margin-top: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    font-size: 14px;
+
+    color: #b9d7ef;
+
+    font-weight: normal;
+}
+
+
+.show-password input {
+
+    width: auto;
+
+    accent-color: var(--cyan);
+}
+
+
+/* =========================================================
+   BUTTON CONTAINER
+   ========================================================= */
+
+.buttons {
+
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 15px;
+}
+
+
+/* =========================================================
+   ALL BUTTONS
+   ========================================================= */
+
+button {
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 14px 20px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        all 0.25s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Button shine */
+
+button::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -100%;
+
+    width: 60%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.22),
+            transparent
+        );
+
+    transition: 0.5s;
+}
+
+
+button:hover::before {
+
+    left: 120%;
+}
+
+
+button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.20);
+}
+
+
+button:active {
+
+    transform: translateY(0);
+}
+
+
+.buttons button {
+
+    flex: 1;
+
+    min-width: 190px;
+}
+
+
+/* =========================================================
+   GENERATE BUTTON
+   ========================================================= */
+
+.generate {
+
+    color: var(--white);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy-dark),
+            var(--navy-light)
+        );
+
+    border:
+        1px solid rgba(103, 232, 249, 0.25);
+
+    box-shadow:
+        0 7px 18px rgba(7, 26, 51, 0.25);
+}
+
+
+.generate:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy-light),
+            var(--blue-dark)
+        );
+}
+
+
+/* =========================================================
+   ENCRYPT BUTTON
+   ========================================================= */
+
+.encrypt {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple-dark),
+            var(--purple)
+        );
+
+    box-shadow:
+        0 7px 20px rgba(124, 58, 237, 0.25);
+}
+
+
+.encrypt:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d28d9,
+            #8b5cf6
+        );
+}
+
+
+/* =========================================================
+   DECRYPT BUTTON
+   ========================================================= */
+
+.decrypt {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--green-dark),
+            var(--green)
+        );
+
+    box-shadow:
+        0 7px 20px rgba(16, 185, 129, 0.23);
+}
+
+
+.decrypt:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #059669,
+            #22c55e
+        );
+}
+
+
+/* =========================================================
+   CLEAR BUTTON
+   ========================================================= */
+
+.clear {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--red-dark),
+            var(--red)
+        );
+
+    box-shadow:
+        0 7px 20px rgba(239, 68, 68, 0.22);
+}
+
+
+.clear:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #dc2626,
+            #f87171
+        );
+}
+
+
+/* =========================================================
+   DOWNLOAD BUTTON
+   ========================================================= */
+
+.download {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue-dark),
+            var(--blue)
+        );
+
+    box-shadow:
+        0 7px 20px rgba(25, 118, 210, 0.22);
+}
+
+
+.download:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #1565c0,
+            var(--blue-light)
+        );
+}
+
+
+/* =========================================================
+   OR DIVIDER
+   ========================================================= */
+
+.or-divider {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 5px 0 30px;
+
+    color: var(--cyan-light);
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+
+.or-divider::before,
+.or-divider::after {
+
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(103,232,249,0.45),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   UPLOAD BOX
+   ========================================================= */
+
+.upload-box {
+
+    background:
+        linear-gradient(
+            145deg,
+            #f9fdff,
+            #eef8ff
+        );
+
+    border:
+        2px dashed #67b7e8;
+
+    border-radius: 18px;
+
+    padding: 26px;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 25px rgba(7, 26, 51, 0.09);
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.upload-box:hover {
+
+    border-color: var(--cyan);
+
+    background:
+        linear-gradient(
+            145deg,
+            #f0fdff,
+            #e8f6ff
+        );
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   UPLOAD ICON
+   ========================================================= */
+
+.upload-icon {
+
+    font-size: 40px;
+
+    margin-bottom: 10px;
+
+    color: var(--blue);
+}
+
+
+/* =========================================================
+   UPLOAD TEXT
+   ========================================================= */
+
+.upload-box p {
+
+    color: var(--text);
+
+    margin-bottom: 17px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   UPLOAD RESULT
+   ========================================================= */
+
+.uploaded-result {
+
+    margin-top: 18px;
+
+    padding: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ecfeff,
+            #effdf9
+        );
+
+    color: var(--green-dark);
+
+    border:
+        1px solid #99f6e4;
+
+    border-left:
+        4px solid var(--cyan);
+
+    border-radius: 10px;
+
+    display: none;
+
+    word-break: break-all;
+
+    line-height: 1.5;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   QR SECTION
+   ========================================================= */
+
+.qr-section {
+
+    border:
+        2px solid rgba(0, 184, 200, 0.30);
+
+    border-radius: 20px;
+
+    padding: 27px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f9fdff,
+            #edf8ff
+        );
+
+    box-shadow:
+        0 10px 30px rgba(7, 26, 51, 0.10);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* QR decorative line */
+
+.qr-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            var(--blue),
+            var(--purple)
+        );
+}
+
+
+/* =========================================================
+   QR CODE DISPLAY
+   ========================================================= */
+
+#qrcode {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin: 22px auto;
+
+    min-height: 20px;
+}
+
+
+#qrcode img,
+#qrcode canvas {
+
+    display: block;
+
+    margin: auto;
+
+    padding: 12px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    border:
+        4px solid #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(7, 26, 51, 0.20);
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+#qrcode img:hover,
+#qrcode canvas:hover {
+
+    transform: scale(1.02);
+
+    box-shadow:
+        0 15px 35px rgba(0, 184, 200, 0.20);
+}
+
+
+/* =========================================================
+   QR PLACEHOLDER
+   ========================================================= */
+
+.qr-placeholder {
+
+    color: var(--text-light);
+
+    margin: 20px 0;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   QR TYPE BADGES
+   ========================================================= */
+
+.qr-type {
+
+    display: inline-block;
+
+    padding: 8px 15px;
+
+    border-radius: 999px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-top: 5px;
+
+    border: 1px solid transparent;
+}
+
+
+/* Original QR */
+
+.original {
+
+    background:
+        linear-gradient(
+            135deg,
+            #dcfce7,
+            #d1fae5
+        );
+
+    color: var(--green-dark);
+
+    border-color: #86efac;
+}
+
+
+/* Protected QR */
+
+.protected {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f3e8ff,
+            #ede9fe
+        );
+
+    color: var(--purple-dark);
+
+    border-color: #c4b5fd;
+}
+
+
+/* =========================================================
+   TEXTAREA
+   ========================================================= */
+
+textarea {
+
+    width: 100%;
+
+    min-height: 150px;
+
+    resize: vertical;
+
+    padding: 14px;
+
+    border:
+        2px solid #cbdceb;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    word-break: break-all;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f5faff
+        );
+
+    color: var(--text);
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+textarea:hover {
+
+    border-color: var(--blue-light);
+}
+
+
+textarea:focus {
+
+    border-color: var(--cyan);
+
+    box-shadow:
+        0 0 0 4px rgba(0, 184, 200, 0.12);
+}
+
+
+/* =========================================================
+   DATA INFORMATION
+   ========================================================= */
+
+.data-info {
+
+    font-size: 13px;
+
+    color: #b9d7ef;
+
+    margin-top: 8px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status {
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    margin-top: 20px;
+
+    display: none;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+/* Success */
+
+.success {
+
+    display: block;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ecfdf5,
+            #dffcf1
+        );
+
+    color: #065f46;
+
+    border:
+        1px solid #86efac;
+
+    border-left:
+        5px solid var(--green);
+
+    box-shadow:
+        0 5px 15px rgba(16, 185, 129, 0.08);
+}
+
+
+/* Error */
+
+.error {
+
+    display: block;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fef2f2,
+            #fff1f2
+        );
+
+    color: #991b1b;
+
+    border:
+        1px solid #fecaca;
+
+    border-left:
+        5px solid var(--red);
+
+    box-shadow:
+        0 5px 15px rgba(239, 68, 68, 0.08);
+}
+
+
+/* =========================================================
+   INFORMATION / WARNING BOX
+   ========================================================= */
+
+.info-box {
+
+    padding: 15px 18px;
+
+    margin-top: 18px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #ecfeff
+        );
+
+    color: #164e63;
+
+    border:
+        1px solid #a5f3fc;
+
+    border-left:
+        5px solid var(--cyan);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   SECURITY BOX
+   ========================================================= */
+
+.security-box {
+
+    padding: 18px;
+
+    margin-top: 20px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef7ff,
+            #ecfeff
+        );
+
+    border:
+        1px solid #a5f3fc;
+
+    border-left:
+        5px solid var(--blue);
+
+    color: var(--text);
+
+    line-height: 1.6;
+}
+
+
+.security-box strong {
+
+    color: var(--navy);
+}
+
+
+.security-box p {
+
+    color: var(--text);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+
+    text-align: center;
+
+    color: #a9c8e5;
+
+    font-size: 13px;
+
+    margin-top: 28px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.12);
+}
+
+
+.footer strong {
+
+    color: var(--cyan-light);
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+
+    color: var(--cyan-light);
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+
+a:hover {
+
+    color: white;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   SELECTION COLOR
+   ========================================================= */
+
+::selection {
+
+    background: var(--cyan);
+
+    color: white;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+
+    width: 9px;
+}
+
+
+::-webkit-scrollbar-track {
+
+    background: #dce8f3;
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        linear-gradient(
+            var(--blue),
+            var(--cyan)
+        );
+
+    border-radius: 20px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background:
+        linear-gradient(
+            var(--navy),
+            var(--blue)
+        );
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+
+        padding: 12px;
+    }
+
+
+    .card {
+
+        padding: 20px;
+
+        border-radius: 20px;
+    }
+
+
+    h1 {
+
+        font-size: 25px;
+    }
+
+
+    .subtitle {
+
+        font-size: 14px;
+    }
+
+
+    .buttons {
+
+        flex-direction: column;
+    }
+
+
+    .buttons button {
+
+        width: 100%;
+
+        flex: none;
+    }
+
+
+    .workflow {
+
+        padding: 18px;
+    }
+
+
+    .qr-section,
+    .upload-box {
+
+        padding: 20px;
+    }
+
+
+    .section-title {
+
+        font-size: 18px;
+    }
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    body {
+
+        padding: 8px;
+    }
+
+
+    .card {
+
+        padding: 17px;
+    }
+
+
+    h1 {
+
+        font-size: 22px;
+    }
+
+
+    .logo {
+
+        width: 68px;
+
+        height: 68px;
+
+        font-size: 30px;
+    }
+
+
+    input[type="text"],
+    input[type="password"],
+    input[type="file"] {
+
+        font-size: 14px;
+
+        padding: 12px;
+    }
+}
+
+</style>
+
+
+    </head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+    <!-- HEADER -->
+    <div class="header">
+
+        <div class="logo">🔐</div>
+
+        <h1>QR Cryptography System</h1>
+
+        <p class="subtitle">
+            Secure your QR code links using password-based
+            AES-256 encryption.
+        </p>
+
+    </div>
+
+
+    <!-- WORKFLOW -->
+    <div class="workflow">
+
+        <div class="workflow-title">
+            How the System Works
+        </div>
+
+        <div class="workflow-step">
+            <strong>Option A:</strong>
+            <span>Enter a link → Generate Original QR → Encrypt.</span>
+        </div>
+
+        <div class="workflow-step">
+            <strong>Option B:</strong>
+            <span>Upload an existing QR → System reads the link → Encrypt.</span>
+        </div>
+
+        <div class="workflow-step">
+            <strong>🔒 Encrypt:</strong>
+            <span>A completely NEW Protected QR is generated.</span>
+        </div>
+
+        <div class="workflow-step">
+            <strong>🔓 Restore:</strong>
+            <span>Upload Protected QR → Enter decryption password → Restore Original QR.</span>
+        </div>
+
+    </div>
+
+
+    <!-- OPTION A -->
+    <div class="section">
+
+        <div class="section-title">
+            🔗 Option A — Enter a Link
+        </div>
+
+        <label for="url">
+            Link / URL
+        </label>
+
+        <input
+            type="text"
+            id="url"
+            placeholder="https://example.com"
+            autocomplete="off"
+        >
+
+        <div class="data-info">
+            Enter any valid HTTP or HTTPS link.
+            <br>
+            Example: https://www.google.com
+        </div>
+
+        <div class="buttons">
+
+            <button
+                class="generate"
+                onclick="generateOriginalQR()"
+            >
+                🔗 Generate Original QR
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="or-divider">
+        OR
+    </div>
+
+
+    <!-- OPTION B -->
+    <div class="section">
+
+        <div class="section-title">
+            📷 Option B — Use an Existing QR
+        </div>
+
+        <div class="upload-box">
+
+            <div class="upload-icon">📷</div>
+
+            <p>
+                Already have a QR code?
+                <br>
+                Upload the QR image here.
+                <br>
+                <strong>You do NOT need to generate another QR.</strong>
+            </p>
+
+            <input
+                type="file"
+                id="existingQRFile"
+                accept="image/png,image/jpeg,image/jpg,image/webp"
+                onchange="readExistingQR(event)"
+            >
+
+            <div
+                id="uploadedResult"
+                class="uploaded-result"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CURRENT QR -->
+    <div class="section">
+
+        <div class="section-title">
+            📱 Current QR Code
+        </div>
+
+        <div class="qr-section">
+
+            <div id="qrType" class="qr-type">
+                No QR Generated
+            </div>
+
+            <div id="qrcode"></div>
+
+            <p
+                id="qrPlaceholder"
+                class="qr-placeholder"
+            >
+                Generate a QR or upload an existing QR first.
+            </p>
+
+            <div class="buttons">
+
+                <button
+                    class="download"
+                    onclick="downloadQR()"
+                >
+                    ⬇ Download Current QR
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ENCRYPTION PASSWORD -->
+    <div class="section">
+
+        <div class="section-title">
+            🔑 Encryption Password
+        </div>
+
+        <label for="password">
+            Password for Encryption
+        </label>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter encryption password"
+            autocomplete="new-password"
+        >
+
+        <label class="show-password">
+
+            <input
+                type="checkbox"
+                id="showPassword"
+                onchange="togglePassword()"
+            >
+
+            Show encryption password
+
+        </label>
+
+        <div class="data-info">
+            This password protects the QR during encryption.
+            Remember this password because it is required for decryption.
+        </div>
+
+    </div>
+
+
+    <!-- ENCRYPT -->
+    <div class="section">
+
+        <div class="section-title">
+            🔒 Encrypt QR
+        </div>
+
+        <p class="data-info">
+
+            The URL inside the QR will be encrypted and
+            a <strong>NEW Protected QR</strong> will be generated.
+
+        </p>
+
+        <div class="buttons">
+
+            <button
+                class="encrypt"
+                onclick="encryptQR()"
+            >
+                🔒 Encrypt & Generate New QR
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ENCRYPTED DATA -->
+    <div class="section">
+
+        <div class="section-title">
+            🔐 Protected QR Data
+        </div>
+
+        <textarea
+            id="encryptedData"
+            readonly
+            placeholder="Encrypted QR data will appear here..."
+        ></textarea>
+
+        <div class="data-info">
+            The encrypted information is stored inside the Protected QR.
+        </div>
+
+    </div>
+
+
+    <!-- UPLOAD PROTECTED QR -->
+    <div class="section">
+
+        <div class="section-title">
+            📤 Upload Protected QR
+        </div>
+
+        <div class="upload-box">
+
+            <div class="upload-icon">
+                🔒
+            </div>
+
+            <p>
+                Upload the Protected QR image generated after encryption.
+                <br>
+                The system will automatically read the encrypted data.
+            </p>
+
+            <input
+                type="file"
+                id="qrFile"
+                accept="image/png,image/jpeg,image/jpg,image/webp"
+                onchange="scanProtectedQR(event)"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- SEPARATE DECRYPTION PASSWORD -->
+    <div class="section">
+
+        <div class="section-title">
+            🔐 Decryption Password
+        </div>
+
+        <label for="decryptPassword">
+            Password for Decryption
+        </label>
+
+        <input
+            type="password"
+            id="decryptPassword"
+            placeholder="Enter decryption password"
+            autocomplete="off"
+        >
+
+        <label class="show-password">
+
+            <input
+                type="checkbox"
+                id="showDecryptPassword"
+                onchange="toggleDecryptPassword()"
+            >
+
+            Show decryption password
+
+        </label>
+
+        <div class="data-info">
+            Enter the same password that was used during encryption.
+        </div>
+
+    </div>
+
+
+    <!-- DECRYPT -->
+    <div class="section">
+
+        <div class="section-title">
+            🔓 Decrypt and Restore
+        </div>
+
+        <p class="data-info">
+            After uploading the Protected QR, enter the decryption
+            password and click the button below.
+        </p>
+
+        <div class="buttons">
+
+            <button
+                class="decrypt"
+                onclick="decryptQR()"
+            >
+                🔓 Decrypt & Restore Original QR
+            </button>
+
+            <button
+                class="clear"
+                onclick="clearEverything()"
+            >
+                🗑 Clear Everything
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- STATUS -->
+    <div
+        id="status"
+        class="status"
+    ></div>
+
+
+    <div class="footer">
+        QR Cryptography System • AES-256-GCM Encryption
+    </div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ==========================================================
+   GLOBAL VARIABLES
+   ========================================================== */
+
+let currentQRType = "none";
+let currentURL = "";
+
+
+/* ==========================================================
+   PASSWORD VISIBILITY
+   ========================================================== */
+
+function togglePassword() {
+
+    const password =
+        document.getElementById("password");
+
+    const checkbox =
+        document.getElementById("showPassword");
+
+    password.type =
+        checkbox.checked ? "text" : "password";
+}
+
+
+function toggleDecryptPassword() {
+
+    const password =
+        document.getElementById("decryptPassword");
+
+    const checkbox =
+        document.getElementById("showDecryptPassword");
+
+    password.type =
+        checkbox.checked ? "text" : "password";
+}
+
+
+/* ==========================================================
+   STATUS
+   ========================================================== */
+
+function showStatus(message, type) {
+
+    const status =
+        document.getElementById("status");
+
+    status.textContent = message;
+
+    status.className =
+        "status " + type;
+}
+
+
+function clearStatus() {
+
+    const status =
+        document.getElementById("status");
+
+    status.textContent = "";
+
+    status.className = "status";
+}
+
+
+/* ==========================================================
+   URL VALIDATION
+   ========================================================== */
+
+function isValidURL(value) {
+
+    try {
+
+        const url = new URL(value);
+
+        return (
+            url.protocol === "http:" ||
+            url.protocol === "https:"
+        );
+
+    } catch {
+
+        return false;
+
+    }
+}
+
+
+/* ==========================================================
+   LIBRARY CHECK
+   ========================================================== */
+
+function librariesReady() {
+
+    if (typeof QRCode === "undefined") {
+
+        showStatus(
+            "QR generator library could not be loaded. Check your internet connection.",
+            "error"
+        );
+
+        return false;
+    }
+
+    if (typeof jsQR === "undefined") {
+
+        showStatus(
+            "QR scanner library could not be loaded. Check your internet connection.",
+            "error"
+        );
+
+        return false;
+    }
+
+    return true;
+}
+
+
+/* ==========================================================
+   CREATE ORIGINAL QR
+   ========================================================== */
+
+function createOriginalQR(url) {
+
+    if (!librariesReady()) {
+        return;
+    }
+
+    const qrContainer =
+        document.getElementById("qrcode");
+
+    qrContainer.innerHTML = "";
+
+    new QRCode(qrContainer, {
+
+        text: url,
+
+        width: 300,
+
+        height: 300,
+
+        colorDark: "#000000",
+
+        colorLight: "#ffffff",
+
+        correctLevel:
+            QRCode.CorrectLevel.H
+
+    });
+
+    document.getElementById(
+        "qrPlaceholder"
+    ).style.display = "none";
+
+    const qrType =
+        document.getElementById("qrType");
+
+    qrType.textContent =
+        "Original QR Code";
+
+    qrType.className =
+        "qr-type original";
+
+    currentQRType = "original";
+
+    currentURL = url;
+}
+
+
+/* ==========================================================
+   GENERATE ORIGINAL QR
+   ========================================================== */
+
+function generateOriginalQR() {
+
+    clearStatus();
+
+    const url =
+        document.getElementById("url").value.trim();
+
+    if (!url) {
+
+        showStatus(
+            "Please enter a URL.",
+            "error"
+        );
+
+        return;
+    }
+
+    if (!isValidURL(url)) {
+
+        showStatus(
+            "Please enter a valid HTTP or HTTPS URL.",
+            "error"
+        );
+
+        return;
+    }
+
+    createOriginalQR(url);
+
+    showStatus(
+        "✓ Original QR generated successfully.",
+        "success"
+    );
+}
+
+
+/* ==========================================================
+   LOAD IMAGE
+   ========================================================== */
+
+function loadImageFromFile(file) {
+
+    return new Promise((resolve, reject) => {
+
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+
+            const img = new Image();
+
+            img.onload = function() {
+                resolve(img);
+            };
+
+            img.onerror = function() {
+                reject(
+                    new Error("Could not load image.")
+                );
+            };
+
+            img.src = event.target.result;
+        };
+
+        reader.onerror = function() {
+
+            reject(
+                new Error("Could not read image.")
+            );
+
+        };
+
+        reader.readAsDataURL(file);
+
+    });
+}
+
+
+/* ==========================================================
+   DECODE QR IMAGE
+   ========================================================== */
+
+async function decodeQRImage(file) {
+
+    if (!librariesReady()) {
+        return null;
+    }
+
+    const img =
+        await loadImageFromFile(file);
+
+    const maxSize = 1600;
+
+    let width = img.naturalWidth || img.width;
+    let height = img.naturalHeight || img.height;
+
+    if (width > maxSize || height > maxSize) {
+
+        const scale =
+            Math.min(
+                maxSize / width,
+                maxSize / height
+            );
+
+        width =
+            Math.floor(width * scale);
+
+        height =
+            Math.floor(height * scale);
+    }
+
+    const canvas =
+        document.createElement("canvas");
+
+    canvas.width = width;
+    canvas.height = height;
+
+    const ctx =
+        canvas.getContext("2d", {
+            willReadFrequently: true
+        });
+
+    ctx.drawImage(
+        img,
+        0,
+        0,
+        width,
+        height
+    );
+
+    const imageData =
+        ctx.getImageData(
+            0,
+            0,
+            width,
+            height
+        );
+
+    let code =
+        jsQR(
+            imageData.data,
+            imageData.width,
+            imageData.height,
+            {
+                inversionAttempts: "attemptBoth"
+            }
+        );
+
+    if (code) {
+        return code.data;
+    }
+
+    /* Retry with larger canvas */
+
+    const retryCanvas =
+        document.createElement("canvas");
+
+    retryCanvas.width =
+        Math.max(width, 2000);
+
+    retryCanvas.height =
+        Math.max(height, 2000);
+
+    const retryCtx =
+        retryCanvas.getContext("2d", {
+            willReadFrequently: true
+        });
+
+    retryCtx.drawImage(
+        img,
+        0,
+        0,
+        retryCanvas.width,
+        retryCanvas.height
+    );
+
+    const retryData =
+        retryCtx.getImageData(
+            0,
+            0,
+            retryCanvas.width,
+            retryCanvas.height
+        );
+
+    code =
+        jsQR(
+            retryData.data,
+            retryData.width,
+            retryData.height,
+            {
+                inversionAttempts: "attemptBoth"
+            }
+        );
+
+    if (code) {
+        return code.data;
+    }
+
+    return null;
+}
+
+
+/* ==========================================================
+   READ EXISTING QR
+   ========================================================== */
+
+async function readExistingQR(event) {
+
+    clearStatus();
+
+    const file =
+        event.target.files[0];
+
+    if (!file) {
+        return;
+    }
+
+    try {
+
+        const data =
+            await decodeQRImage(file);
+
+        if (!data) {
+
+            throw new Error(
+                "QR code could not be detected."
+            );
+        }
+
+        let url = data;
+
+        /* Check if uploaded QR is already protected */
+
+        try {
+
+            const parsed =
+                JSON.parse(data);
+
+            if (
+                parsed.type ===
+                "PROTECTED-QR"
+            ) {
+
+                showStatus(
+                    "This is already a Protected QR. Upload it in the Protected QR section.",
+                    "error"
+                );
+
+                return;
+            }
+
+        } catch {
+            /* Normal URL */
+        }
+
+        if (!isValidURL(url)) {
+
+            throw new Error(
+                "The QR was detected, but it does not contain a valid HTTP or HTTPS URL."
+            );
+        }
+
+        document.getElementById(
+            "url"
+        ).value = url;
+
+        currentURL = url;
+
+        createOriginalQR(url);
+
+        const result =
+            document.getElementById(
+                "uploadedResult"
+            );
+
+        result.style.display = "block";
+
+        result.innerHTML =
+            "<strong>✓ QR Detected</strong><br>" +
+            "URL: " +
+            escapeHTML(url);
+
+        showStatus(
+            "✓ Existing QR detected successfully.",
+            "success"
+        );
+
+    } catch (error) {
+
+        console.error(error);
+
+        showStatus(
+            "✗ " + error.message,
+            "error"
+        );
+    }
+}
+
+
+/* ==========================================================
+   ESCAPE HTML
+   ========================================================== */
+
+function escapeHTML(value) {
+
+    return value
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+
+/* ==========================================================
+   BASE64 HELPERS
+   ========================================================== */
+
+function arrayBufferToBase64(buffer) {
+
+    let binary = "";
+
+    const bytes =
+        new Uint8Array(buffer);
+
+    const chunkSize = 0x8000;
+
+    for (
+        let i = 0;
+        i < bytes.length;
+        i += chunkSize
+    ) {
+
+        binary += String.fromCharCode(
+            ...bytes.subarray(
+                i,
+                i + chunkSize
+            )
+        );
+    }
+
+    return btoa(binary);
+}
+
+
+function base64ToArrayBuffer(base64) {
+
+    const binary =
+        atob(base64);
+
+    const bytes =
+        new Uint8Array(
+            binary.length
+        );
+
+    for (
+        let i = 0;
+        i < binary.length;
+        i++
+    ) {
+
+        bytes[i] =
+            binary.charCodeAt(i);
+    }
+
+    return bytes.buffer;
+}
+
+
+/* ==========================================================
+   CREATE ENCRYPTION KEY
+   ========================================================== */
+
+async function createEncryptionKey(
+    password,
+    salt
+) {
+
+    const encoder =
+        new TextEncoder();
+
+    const passwordKey =
+        await crypto.subtle.importKey(
+            "raw",
+            encoder.encode(password),
+            "PBKDF2",
+            false,
+            ["deriveKey"]
+        );
+
+    return await crypto.subtle.deriveKey(
+
+        {
+            name: "PBKDF2",
+            salt: salt,
+            iterations: 100000,
+            hash: "SHA-256"
+        },
+
+        passwordKey,
+
+        {
+            name: "AES-GCM",
+            length: 256
+        },
+
+        false,
+
+        [
+            "encrypt",
+            "decrypt"
+        ]
+    );
+}
+
+
+/* ==========================================================
+   ENCRYPT QR
+   ========================================================== */
+
+async function encryptQR() {
+
+    clearStatus();
+
+    const url =
+        document.getElementById(
+            "url"
+        ).value.trim();
+
+    const password =
+        document.getElementById(
+            "password"
+        ).value;
+
+    if (!url) {
+
+        showStatus(
+            "Please generate or upload an original QR first.",
+            "error"
+        );
+
+        return;
+    }
+
+    if (!isValidURL(url)) {
+
+        showStatus(
+            "The URL is not valid.",
+            "error"
+        );
+
+        return;
+    }
+
+    if (!password) {
+
+        showStatus(
+            "Please enter an encryption password.",
+            "error"
+        );
+
+        return;
+    }
+
+    if (
+        !window.crypto ||
+        !window.crypto.subtle
+    ) {
+
+        showStatus(
+            "Your browser does not support the required Web Crypto API.",
+            "error"
+        );
+
+        return;
+    }
+
+    try {
+
+        /* Generate random salt */
+
+        const salt =
+            crypto.getRandomValues(
+                new Uint8Array(16)
+            );
+
+        /* Generate random IV */
+
+        const iv =
+            crypto.getRandomValues(
+                new Uint8Array(12)
+            );
+
+        /* Create key */
+
+        const key =
+            await createEncryptionKey(
+                password,
+                salt
+            );
+
+        /* Encrypt URL */
+
+        const encoder =
+            new TextEncoder();
+
+        const encrypted =
+            await crypto.subtle.encrypt(
+
+                {
+                    name: "AES-GCM",
+                    iv: iv
+                },
+
+                key,
+
+                encoder.encode(url)
+
+            );
+
+        /* Create protected package */
+
+        const protectedPackage = {
+
+            type: "PROTECTED-QR",
+
+            version: 1,
+
+            algorithm: "AES-256-GCM",
+
+            kdf: "PBKDF2-SHA256",
+
+            iterations: 100000,
+
+            salt:
+                arrayBufferToBase64(salt),
+
+            iv:
+                arrayBufferToBase64(iv),
+
+            data:
+                arrayBufferToBase64(encrypted)
+
+        };
+
+        const json =
+            JSON.stringify(
+                protectedPackage
+            );
+
+        /* Display encrypted data */
+
+        document.getElementById(
+            "encryptedData"
+        ).value = json;
+
+        /* Generate protected QR */
+
+        const qrContainer =
+            document.getElementById(
+                "qrcode"
+            );
+
+        qrContainer.innerHTML = "";
+
+        new QRCode(
+            qrContainer,
+            {
+                text: json,
+                width: 300,
+                height: 300,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel:
+                    QRCode.CorrectLevel.L
+            }
+        );
+
+        document.getElementById(
+            "qrPlaceholder"
+        ).style.display = "none";
+
+        const qrType =
+            document.getElementById(
+                "qrType"
+            );
+
+        qrType.textContent =
+            "Protected / Encrypted QR";
+
+        qrType.className =
+            "qr-type protected";
+
+        currentQRType =
+            "protected";
+
+        showStatus(
+            "✓ Encryption successful! A new Protected QR has been generated.",
+            "success"
+        );
+
+    } catch (error) {
+
+        console.error(error);
+
+        showStatus(
+            "✗ Encryption failed: " +
+            error.message,
+            "error"
+        );
+    }
+}
+
+
+/* ==========================================================
+   SCAN PROTECTED QR
+   ========================================================== */
+
+async function scanProtectedQR(event) {
+
+    clearStatus();
+
+    const file =
+        event.target.files[0];
+
+    if (!file) {
+        return;
+    }
+
+    try {
+
+        const data =
+            await decodeQRImage(file);
+
+        if (!data) {
+
+            throw new Error(
+                "Protected QR could not be detected."
+            );
+        }
+
+        let parsed;
+
+        try {
+
+            parsed =
+                JSON.parse(data);
+
+        } catch {
+
+            throw new Error(
+                "This QR does not contain protected encryption data."
+            );
+        }
+
+        if (
+            parsed.type !==
+            "PROTECTED-QR"
+        ) {
+
+            throw new Error(
+                "This is not a Protected QR."
+            );
+        }
+
+        if (
+            !parsed.salt ||
+            !parsed.iv ||
+            !parsed.data
+        ) {
+
+            throw new Error(
+                "Protected QR data is incomplete."
+            );
+        }
+
+        document.getElementById(
+            "encryptedData"
+        ).value = data;
+
+        showStatus(
+            "✓ Protected QR detected successfully. Enter the decryption password below.",
+            "success"
+        );
+
+    } catch (error) {
+
+        console.error(error);
+
+        showStatus(
+            "✗ " + error.message,
+            "error"
+        );
+    }
+}
+
+
+/* ==========================================================
+   DECRYPT QR
+   ========================================================== */
+
+async function decryptQR() {
+
+    clearStatus();
+
+    const encryptedString =
+        document.getElementById(
+            "encryptedData"
+        ).value.trim();
+
+    /* IMPORTANT:
+       Use the SEPARATE decryption password.
+    */
+
+    const password =
+        document.getElementById(
+            "decryptPassword"
+        ).value;
+
+    if (!encryptedString) {
+
+        showStatus(
+            "Please upload a Protected QR first.",
+            "error"
+        );
+
+        return;
+    }
+
+    if (!password) {
+
+        showStatus(
+            "Please enter the decryption password.",
+            "error"
+        );
+
+        return;
+    }
+
+    if (
+        !window.crypto ||
+        !window.crypto.subtle
+    ) {
+
+        showStatus(
+            "Your browser does not support the required Web Crypto API.",
+            "error"
+        );
+
+        return;
+    }
+
+    try {
+
+        /* Parse protected package */
+
+        const encryptedPackage =
+            JSON.parse(
+                encryptedString
+            );
+
+        if (
+            encryptedPackage.type !==
+            "PROTECTED-QR"
+        ) {
+
+            throw new Error(
+                "Invalid Protected QR."
+            );
+        }
+
+        if (
+            !encryptedPackage.salt ||
+            !encryptedPackage.iv ||
+            !encryptedPackage.data
+        ) {
+
+            throw new Error(
+                "Protected QR data is incomplete."
+            );
+        }
+
+        /* Decode salt */
+
+        const salt =
+            new Uint8Array(
+                base64ToArrayBuffer(
+                    encryptedPackage.salt
+                )
+            );
+
+        /* Decode IV */
+
+        const iv =
+            new Uint8Array(
+                base64ToArrayBuffer(
+                    encryptedPackage.iv
+                )
+            );
+
+        /* Decode encrypted data */
+
+        const encryptedData =
+            base64ToArrayBuffer(
+                encryptedPackage.data
+            );
+
+        /* Recreate encryption key */
+
+        const key =
+            await createEncryptionKey(
+                password,
+                salt
+            );
+
+        /* Decrypt */
+
+        const decrypted =
+            await crypto.subtle.decrypt(
+
+                {
+                    name: "AES-GCM",
+                    iv: iv
+                },
+
+                key,
+
+                encryptedData
+
+            );
+
+        /* Convert back to URL */
+
+        const decoder =
+            new TextDecoder();
+
+        const originalURL =
+            decoder.decode(
+                decrypted
+            );
+
+        /* Validate URL */
+
+        if (!isValidURL(originalURL)) {
+
+            throw new Error(
+                "Restored information is not a valid URL."
+            );
+        }
+
+        /* Restore URL */
+
+        document.getElementById(
+            "url"
+        ).value =
+            originalURL;
+
+        currentURL =
+            originalURL;
+
+        /* Generate original QR */
+
+        createOriginalQR(
+            originalURL
+        );
+
+        showStatus(
+            "✓ Decryption successful! The Original QR has been restored.",
+            "success"
+        );
+
+    } catch (error) {
+
+        console.error(error);
+
+        showStatus(
+            "✗ Decryption failed. The password is incorrect, or the Protected QR is invalid/corrupted.",
+            "error"
+        );
+    }
+}
+
+
+/* ==========================================================
+   DOWNLOAD QR
+   ========================================================== */
+
+function downloadQR() {
+
+    const qrContainer =
+        document.getElementById(
+            "qrcode"
+        );
+
+    const canvas =
+        qrContainer.querySelector(
+            "canvas"
+        );
+
+    const image =
+        qrContainer.querySelector(
+            "img"
+        );
+
+    let dataURL = null;
+
+    if (canvas) {
+
+        dataURL =
+            canvas.toDataURL(
+                "image/png"
+            );
+
+    } else if (image) {
+
+        dataURL =
+            image.src;
+
+    }
+
+    if (!dataURL) {
+
+        showStatus(
+            "Please generate a QR code first.",
+            "error"
+        );
+
+        return;
+    }
+
+    const link =
+        document.createElement("a");
+
+    link.href =
+        dataURL;
+
+    link.download =
+        currentQRType === "protected"
+            ? "protected-qr.png"
+            : "original-qr.png";
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+}
+
+
+/* ==========================================================
+   CLEAR EVERYTHING
+   ========================================================== */
+
+function clearEverything() {
+
+    document.getElementById(
+        "url"
+    ).value = "";
+
+    document.getElementById(
+        "password"
+    ).value = "";
+
+    document.getElementById(
+        "decryptPassword"
+    ).value = "";
+
+    document.getElementById(
+        "encryptedData"
+    ).value = "";
+
+    document.getElementById(
+        "existingQRFile"
+    ).value = "";
+
+    document.getElementById(
+        "qrFile"
+    ).value = "";
+
+    document.getElementById(
+        "qrcode"
+    ).innerHTML = "";
+
+    document.getElementById(
+        "uploadedResult"
+    ).style.display = "none";
+
+    document.getElementById(
+        "qrPlaceholder"
+    ).style.display = "block";
+
+    document.getElementById(
+        "showPassword"
+    ).checked = false;
+
+    document.getElementById(
+        "showDecryptPassword"
+    ).checked = false;
+
+    document.getElementById(
+        "password"
+    ).type = "password";
+
+    document.getElementById(
+        "decryptPassword"
+    ).type = "password";
+
+    const qrType =
+        document.getElementById(
+            "qrType"
+        );
+
+    qrType.textContent =
+        "No QR Generated";
+
+    qrType.className =
+        "qr-type";
+
+    currentQRType =
+        "none";
+
+    currentURL =
+        "";
+
+    clearStatus();
+}
+
+</script>
+
+</body>
+</html>
